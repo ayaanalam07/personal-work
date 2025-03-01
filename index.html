@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 90%;
+            width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 28px;
+        }
+        p {
+            color: #333;
+            font-size: 16px;
+        }
+        .heart {
+            font-size: 40px;
+            color: #ff6b6b;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #ff6b6b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #ff4040;
+        }
+        .heart-animation {
+            position: absolute;
+            font-size: 25px;
+            color: #ff6b6b;
+            animation: floatUp 3s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .love-message {
+            font-size: 24px;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .heart {
+                font-size: 30px;
+            }
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .love-message {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sorry Meri Gulab Jamun 😔</h1>
+        <p>Meri Jaan Maan jao na Ap Aise naraz na ho bhae ap narazgi chordo mein apse bohat pyaar krta hun mujhsy galti ho gyi sorry 🥺💋</p>
+        <div class="heart">❤️</div>
+        <button class="button" onclick="showHearts()">Maan jao tu click kro?</button>
+        <div class="love-message" id="loveMessage">I Love You ❤️</div>
+    </div>
+    <script>
+        function showHearts() {
+            for (let i = 0; i < 50; i++) { 
+                let heart = document.createElement("div");
+                heart.className = "heart-animation";
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 100 + "vh";
+                heart.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }
+            let loveMessage = document.getElementById("loveMessage");
+            loveMessage.style.display = "block";
+            loveMessage.style.animation = "fadeIn 2s ease-in-out";
+        }
+    </script>
+</body>
+</html>
